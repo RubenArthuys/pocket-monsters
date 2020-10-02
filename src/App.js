@@ -23,7 +23,7 @@ function App() {
     })
 
     return () => cancel()
-  }, [setCurrentPageUrl])
+  }, [currentPageUrl])
 
   function gotoNextPage() {
     setCurrentPageUrl(nextPageUrl)
@@ -39,8 +39,8 @@ function App() {
     <>
     <PokemonList pokemon={pokemon} />
     <Pagination 
-      gotoNextPage={gotoNextPage} 
-      gotoPrevPage={gotoPrevPage}
+      gotoNextPage={nextPageUrl ? gotoNextPage : null}
+      gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
     />
     </>
   );
